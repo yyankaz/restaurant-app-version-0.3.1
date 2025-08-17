@@ -63,4 +63,30 @@ for each position: main dish, side dish, drink, dessert, toy. It's possible to s
 - After payment, customers receive their order.
 
 ## Project architecture 
-*to be continued...*
+### Domain layer
+![ER-diagram](./images/domain_layer.png)
+
+#### *Key entities*
+
+- **user**: the base entity for all types of system users. a user can have different roles such as `admin`, `customer`, or `guest`  
+- **admin**: represents an administrator responsible for managing the system  
+- **customer**: a registered user with additional attributes such as customer status and loyalty points  
+- **guest**: a non-registered user who can still place orders
+- **order**: the central entity that links customers/guests with the dishes they purchase. each order contains multiple ordered dishes  
+- **ordered dish**: connects an order with specific dishes, including quantity information
+- **menu**: contains a list of available dishes grouped by categories  
+- **dish**: represents a meal item, which belongs to a specific dish category and consists of multiple ingredients  
+- **ingredient**: basic building blocks of a dish, including details such as name and nutritional values  
+- **dish category**: classification of dishes (meat, seafood, vegan, desserts)
+- **customer status**: defines loyalty levels (regular, silver, gold, platinum)  
+- **special offer**: linked with customer statuses to provide discounts or promotions
+
+#### *Relationships*
+
+- **user**: can be an admin, customer, or guest  
+- **customer**: may have a customer status, which can be linked with special offers  
+- **customer or guest**: can place multiple orders  
+- **order**: consists of several ordered dishes  
+- **ordered dish**: references a dish from the menu  
+- **dish**: belongs to a dish category and can contain multiple ingredients  
+- **menu**: groups dishes by categories 
