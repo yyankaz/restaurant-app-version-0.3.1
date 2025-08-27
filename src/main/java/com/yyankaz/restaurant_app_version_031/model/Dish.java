@@ -8,7 +8,7 @@ import java.util.List;
 public class Dish {
     @Id
     @GeneratedValue
-    private Long dishID;
+    private Long dishId;
     private String dishName;
     private Double dishPrice;
     private String dishDescription;

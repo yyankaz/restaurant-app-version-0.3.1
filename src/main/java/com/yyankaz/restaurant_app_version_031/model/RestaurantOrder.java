@@ -12,7 +12,7 @@ import java.util.List;
 public class RestaurantOrder {
     @Id
     @GeneratedValue
-    private Long orderID;
+    private Long orderId;
     private Double totalPrice;
     private LocalDateTime createdAt;
     @OneToMany

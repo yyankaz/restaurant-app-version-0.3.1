@@ -8,7 +8,7 @@ import java.util.List;
 public class Drink {
     @Id
     @GeneratedValue
-    private Long drinkID;
+    private Long drinkId;
     private String drinkName;
     private Double drinkPrice;
     private String drinkDescription;

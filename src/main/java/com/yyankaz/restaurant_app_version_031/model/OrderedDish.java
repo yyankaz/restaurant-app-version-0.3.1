@@ -9,7 +9,7 @@ import jakarta.persistence.ManyToOne;
 public class OrderedDish {
     @Id
     @GeneratedValue
-    private Long orderedDishID;
+    private Long orderedDishId;
     private Integer dishQuantity;
     private Double dishFullPrice;
     @ManyToOne

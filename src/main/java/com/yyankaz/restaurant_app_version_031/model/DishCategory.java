@@ -8,7 +8,7 @@ import java.util.List;
 public class DishCategory {
     @Id
     @GeneratedValue
-    private Long dishCategoryID;
+    private Long dishCategoryId;
     private DishCategoryName dishCategoryName;
     @OneToMany
     private List<Dish> dishes;

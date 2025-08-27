@@ -11,7 +11,7 @@ import java.util.List;
 public class Ingredient {
     @Id
     @GeneratedValue
-    private Long ingredientID;
+    private Long ingredientId;
     private String ingredientName;
     private Boolean isAlegric;
     @ManyToMany
