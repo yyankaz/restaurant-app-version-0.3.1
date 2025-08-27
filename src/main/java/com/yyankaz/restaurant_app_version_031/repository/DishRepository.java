@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface DishRepository extends JpaRepository<Dish, Long> {
-    List<Dish> findByCategoryId(Long categoryId);
+    List<Dish> findByCategoryId(Long dishCategoryId);
 }

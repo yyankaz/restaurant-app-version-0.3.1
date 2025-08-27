@@ -12,10 +12,12 @@ import java.util.List;
 public class DishServiceImpl implements DishService{
 
     private DishRepository dishRepository;
+    private DishCategoryService dishCategoryService;
 
     @Override
-    public Dish getDishById(Long id) {
-        return dishRepository.getById(id);
+    public Dish getDishById(Long dishId) {
+        return dishRepository.findById(dishId)
+                .orElseThrow(() -> new RuntimeException("Dish with id " + dishId + " has not been found."));
     }
 
     @Override
@@ -24,12 +26,13 @@ public class DishServiceImpl implements DishService{
     }
 
     @Override
-    public void deleteDish(Long id) {
-        dishRepository.deleteById(id);
+    public void deleteDish(Long dishId) {
+        dishRepository.deleteById(dishId);
     }
 
     @Override
-    public List<Dish> getDishesByCategory(Long categoryId) {
-        return dishRepository.findByCategoryId(categoryId);
+    public List<Dish> getDishesByCategory(Long dishCategoryId) {
+        dishCategoryService.getCategoryById(dishCategoryId);
+        return dishRepository.findByCategoryId(dishCategoryId);
     }
 }

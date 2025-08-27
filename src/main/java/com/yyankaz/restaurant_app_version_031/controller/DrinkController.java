@@ -1,7 +1,7 @@
 package com.yyankaz.restaurant_app_version_031.controller;
 
 import com.yyankaz.restaurant_app_version_031.model.Drink;
-import com.yyankaz.restaurant_app_version_031.service.DrinkServiceImpl;
+import com.yyankaz.restaurant_app_version_031.service.DrinkService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,26 +12,26 @@ import java.util.List;
 @RequestMapping("/drink")
 public class DrinkController {
 
-    private DrinkServiceImpl drinkService;
+    private DrinkService drinkService;
 
-    @GetMapping("/{id}")
-    public Drink getDrinkById(Long id) {
-        return drinkService.getDrinkById(id);
+    @GetMapping("/{drinkId}")
+    public Drink getDrinkById(@PathVariable Long drinkId) {
+        return drinkService.getDrinkById(drinkId);
     }
 
     @PostMapping("/save")
-    public Drink saveDrink(Drink drink) {
+    public Drink saveDrink(@RequestBody Drink drink) {
         return drinkService.saveDrink(drink);
     }
 
-    @DeleteMapping("/delete")
-    public void deleteDrink(Long id) {
-        drinkService.deleteDrink(id);
+    @DeleteMapping("/delete/{drinkId}")
+    public void deleteDrink(@PathVariable Long drinkId) {
+        drinkService.deleteDrink(drinkId);
     }
 
     @GetMapping
-    public List<Drink> getDrinksByCategory(Long categoryId) {
-        return drinkService.getDrinksByCategory(categoryId);
+    public List<Drink> getDrinksByCategory(@RequestParam Long drinkCategoryId) {
+        return drinkService.getDrinksByCategory(drinkCategoryId);
     }
 
 }

@@ -1,7 +1,7 @@
 package com.yyankaz.restaurant_app_version_031.controller;
 
 import com.yyankaz.restaurant_app_version_031.model.Dish;
-import com.yyankaz.restaurant_app_version_031.service.DishServiceImpl;
+import com.yyankaz.restaurant_app_version_031.service.DishService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,26 +12,26 @@ import java.util.List;
 @RequestMapping("/dish")
 public class DishController {
 
-    private DishServiceImpl dishService;
+    private DishService dishService;
 
-    @GetMapping("/{id}")
-    public Dish getDishById(Long id) {
-        return dishService.getDishById(id);
+    @GetMapping("/{dishId}")
+    public Dish getDishById(@PathVariable Long dishId) {
+        return dishService.getDishById(dishId);
     }
 
     @PostMapping("/save")
-    public Dish saveDish(Dish dish) {
+    public Dish saveDish(@RequestBody Dish dish) {
         return dishService.saveDish(dish);
     }
 
-    @DeleteMapping("/delete")
-    public void deleteDish(Long id) {
-        dishService.deleteDish(id);
+    @DeleteMapping("/delete/{dishId}")
+    public void deleteDish(@PathVariable Long dishId) {
+        dishService.deleteDish(dishId);
     }
 
     @GetMapping
-    public List<Dish> getDishesByCategory(Long categoryId) {
-        return dishService.getDishesByCategory(categoryId);
+    public List<Dish> getDishesByCategory(@RequestParam Long dishCategoryId) {
+        return dishService.getDishesByCategory(dishCategoryId);
     }
 
 }

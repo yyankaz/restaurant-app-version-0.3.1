@@ -8,7 +8,7 @@ import java.util.List;
 public class Dish {
     @Id
     @GeneratedValue
-    private Long dishId;
+    private Long id;
     private String dishName;
     private Double dishPrice;
     private String dishDescription;
@@ -16,7 +16,7 @@ public class Dish {
     @ManyToMany
     private List<Ingredient> ingredients;
     @ManyToOne
-    private DishCategory dishCategory;
+    private DishCategory category;
     @OneToMany
     private List<OrderedDish> orderedDishes;
 }
