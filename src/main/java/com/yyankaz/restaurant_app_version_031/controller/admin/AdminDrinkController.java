@@ -20,17 +20,17 @@ public class AdminDrinkController {
     }
 
     @PostMapping("/drink_creator")
-    public void createNewDrink(Drink drink) {
+    public void createNewDrink(@RequestBody Drink drink) {
         adminDrinkService.createNewDrink(drink);
     }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteDrinkById(Long id) {
+    public void deleteDrinkById(@PathVariable Long id) {
         adminDrinkService.deleteDrinkById(id);
     }
 
     @PutMapping("/update/{id}")
-    public void updateDrinkById(Long id) {
+    public void updateDrinkById(@PathVariable Long id) {
         adminDrinkService.updateDrinkById(id);
     }
 }

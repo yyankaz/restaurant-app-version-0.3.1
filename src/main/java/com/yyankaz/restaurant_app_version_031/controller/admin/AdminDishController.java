@@ -19,17 +19,17 @@ public class AdminDishController {
     }
 
     @PostMapping("/dish_creator")
-    public void createNewDish(Dish dish) {
+    public void createNewDish(@RequestBody Dish dish) {
         adminDishService.createNewDish(dish);
     }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteDishById(Long id) {
+    public void deleteDishById(@PathVariable Long id) {
         adminDishService.deleteDishById(id);
     }
 
     @PutMapping("/update/{id}")
-    public void updateDishById(Long id) {
+    public void updateDishById(@PathVariable Long id) {
         adminDishService.updateDishById(id);
     }
 }
