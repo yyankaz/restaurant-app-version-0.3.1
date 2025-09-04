@@ -19,15 +19,6 @@ public class DishController {
         return dishService.getDishById(dishId);
     }
 
-    @PostMapping("/save")
-    public Dish saveDish(@RequestBody Dish dish) {
-        return dishService.saveDish(dish);
-    }
-
-    @DeleteMapping("/delete/{dishId}")
-    public void deleteDish(@PathVariable Long dishId) {
-        dishService.deleteDish(dishId);
-    }
 
     @GetMapping
     public List<Dish> getDishesByCategory(@RequestParam Long dishCategoryId) {

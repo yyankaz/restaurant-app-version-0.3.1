@@ -11,8 +11,8 @@ import java.util.List;
 @AllArgsConstructor
 public class DishServiceImpl implements DishService{
 
-    private DishRepository dishRepository;
-    private DishCategoryService dishCategoryService;
+    private final DishRepository dishRepository;
+    private final DishCategoryService dishCategoryService;
 
     @Override
     public Dish getDishById(Long dishId) {
@@ -20,15 +20,6 @@ public class DishServiceImpl implements DishService{
                 .orElseThrow(() -> new RuntimeException("Dish with id " + dishId + " has not been found."));
     }
 
-    @Override
-    public Dish saveDish(Dish dish) {
-        return dishRepository.save(dish);
-    }
-
-    @Override
-    public void deleteDish(Long dishId) {
-        dishRepository.deleteById(dishId);
-    }
 
     @Override
     public List<Dish> getDishesByCategory(Long dishCategoryId) {

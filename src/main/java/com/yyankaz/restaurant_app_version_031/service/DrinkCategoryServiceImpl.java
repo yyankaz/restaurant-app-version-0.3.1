@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 public class DrinkCategoryServiceImpl implements DrinkCategoryService{
 
-    private DrinkCategoryRepository drinkCategoryRepository;
+    private final DrinkCategoryRepository drinkCategoryRepository;
 
     @Override
     public List<DrinkCategory> getAllCategories() {

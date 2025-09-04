@@ -19,15 +19,6 @@ public class DrinkController {
         return drinkService.getDrinkById(drinkId);
     }
 
-    @PostMapping("/save")
-    public Drink saveDrink(@RequestBody Drink drink) {
-        return drinkService.saveDrink(drink);
-    }
-
-    @DeleteMapping("/delete/{drinkId}")
-    public void deleteDrink(@PathVariable Long drinkId) {
-        drinkService.deleteDrink(drinkId);
-    }
 
     @GetMapping
     public List<Drink> getDrinksByCategory(@RequestParam Long drinkCategoryId) {

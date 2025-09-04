@@ -3,13 +3,13 @@ package com.yyankaz.restaurant_app_version_031.service;
 import com.yyankaz.restaurant_app_version_031.dto.RegisterRequest;
 import com.yyankaz.restaurant_app_version_031.model.User;
 import com.yyankaz.restaurant_app_version_031.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.yyankaz.restaurant_app_version_031.model.Role;
 
 @Service
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;

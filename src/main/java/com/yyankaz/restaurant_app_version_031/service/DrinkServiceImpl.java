@@ -11,8 +11,8 @@ import java.util.List;
 @AllArgsConstructor
 public class DrinkServiceImpl implements DrinkService{
 
-    private DrinkRepository drinkRepository;
-    private DrinkCategoryService drinkCategoryService;
+    private final DrinkRepository drinkRepository;
+    private final DrinkCategoryService drinkCategoryService;
 
     @Override
     public Drink getDrinkById(Long drinkId) {
@@ -20,15 +20,6 @@ public class DrinkServiceImpl implements DrinkService{
                 .orElseThrow(() -> new RuntimeException("Drink with id " + drinkId + " has not been found."));
     }
 
-    @Override
-    public Drink saveDrink(Drink drink) {
-        return drinkRepository.save(drink);
-    }
-
-    @Override
-    public void deleteDrink(Long drinkId) {
-        drinkRepository.deleteById(drinkId);
-    }
 
     @Override
     public List<Drink> getDrinksByCategory(Long drinkCategoryId) {

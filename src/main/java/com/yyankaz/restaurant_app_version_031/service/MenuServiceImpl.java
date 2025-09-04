@@ -11,8 +11,8 @@ import java.util.List;
 @AllArgsConstructor
 public class MenuServiceImpl implements MenuService {
 
-    private DrinkCategoryService drinkCategoryService;
-    private DishCategoryService dishCategoryService;
+    private final DrinkCategoryService drinkCategoryService;
+    private final DishCategoryService dishCategoryService;
     @Override
     public List<DishCategory> getDishCategories() {
         return dishCategoryService.getAllCategories();

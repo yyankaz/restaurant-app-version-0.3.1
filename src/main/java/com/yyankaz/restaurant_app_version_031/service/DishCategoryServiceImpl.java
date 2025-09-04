@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 public class DishCategoryServiceImpl implements DishCategoryService{
 
-    private DishCategoryRepository dishCategoryRepository;
+    private final DishCategoryRepository dishCategoryRepository;
 
     @Override
     public List<DishCategory> getAllCategories() {
