@@ -10,5 +10,5 @@ public interface AdminIngredientService {
     List<Ingredient> getAllIngredients();
     void createNewIngredient(Ingredient ingredient);
     void deleteIngredientById(Long id);
-    void updateIngredientById(Long id);
+    void updateIngredientById(Long id, Ingredient ingredient);
 }

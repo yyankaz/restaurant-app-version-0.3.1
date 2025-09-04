@@ -32,9 +32,11 @@ public class AdminIngredientServiceImpl implements AdminIngredientService{
     }
 
     @Override
-    public void updateIngredientById(Long id) {
-        Ingredient ingredient = adminIngredientRepository.findById(id)
+    public void updateIngredientById(Long id, Ingredient ingredient) {
+        Ingredient existing = adminIngredientRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Dish not found with id: " + id));
-        adminIngredientRepository.save(ingredient);
+        existing.setIngredientName(ingredient.getIngredientName());
+        existing.setIsAlegric(ingredient.getIsAlegric());
+        adminIngredientRepository.save(existing);
     }
 }

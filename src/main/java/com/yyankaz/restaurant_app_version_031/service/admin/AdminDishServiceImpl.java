@@ -33,9 +33,15 @@ public class AdminDishServiceImpl implements AdminDishService {
     }
 
     @Override
-    public void updateDishById(Long id) {
-        Dish dish = adminDishRepository.findById(id)
+    public void updateDishById(Long id, Dish dish) {
+        Dish existing = adminDishRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Dish not found with id: " + id));
-        adminDishRepository.save(dish);
+        existing.setDishName(dish.getDishName());
+        existing.setDishPrice(dish.getDishPrice());
+        existing.setDishDescription(dish.getDishDescription());
+        existing.setDishImageURL(dish.getDishImageURL());
+        existing.setCategory(dish.getCategory());
+        existing.setIngredients(dish.getIngredients());
+        adminDishRepository.save(existing);
     }
 }

@@ -8,5 +8,5 @@ public interface AdminDishService {
     List<Dish> getAllDishes();
     void createNewDish(Dish dish);
     void deleteDishById(Long id);
-    void updateDishById(Long id);
+    void updateDishById(Long id, Dish dish);
 }

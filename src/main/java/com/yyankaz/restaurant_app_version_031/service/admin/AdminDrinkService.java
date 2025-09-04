@@ -8,5 +8,5 @@ public interface AdminDrinkService {
     List<Drink> getAllDrinks();
     void createNewDrink(Drink drink);
     void deleteDrinkById(Long id);
-    void updateDrinkById(Long id);
+    void updateDrinkById(Long id, Drink drink);
 }

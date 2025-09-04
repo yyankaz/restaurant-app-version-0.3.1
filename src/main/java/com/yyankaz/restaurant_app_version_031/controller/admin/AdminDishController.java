@@ -29,7 +29,7 @@ public class AdminDishController {
     }
 
     @PutMapping("/update/{id}")
-    public void updateDishById(@PathVariable Long id) {
-        adminDishService.updateDishById(id);
+    public void updateDishById(@PathVariable Long id, @RequestBody Dish dish) {
+        adminDishService.updateDishById(id, dish);
     }
 }

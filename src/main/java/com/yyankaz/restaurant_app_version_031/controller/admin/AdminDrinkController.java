@@ -30,7 +30,7 @@ public class AdminDrinkController {
     }
 
     @PutMapping("/update/{id}")
-    public void updateDrinkById(@PathVariable Long id) {
-        adminDrinkService.updateDrinkById(id);
+    public void updateDrinkById(@PathVariable Long id, @RequestBody Drink drink) {
+        adminDrinkService.updateDrinkById(id, drink);
     }
 }

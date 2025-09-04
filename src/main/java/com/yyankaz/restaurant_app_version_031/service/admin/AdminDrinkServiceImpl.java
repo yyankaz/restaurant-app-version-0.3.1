@@ -31,9 +31,15 @@ public class AdminDrinkServiceImpl implements AdminDrinkService {
     }
 
     @Override
-    public void updateDrinkById(Long id) {
-        Drink drink = adminDrinkRepository.findById(id)
+    public void updateDrinkById(Long id, Drink drink) {
+        Drink existing = adminDrinkRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Drink not found with id: " + id));
-        adminDrinkRepository.save(drink);
+        existing.setDrinkName(drink.getDrinkName());
+        existing.setDrinkPrice(drink.getDrinkPrice());
+        existing.setDrinkDescription(drink.getDrinkDescription());
+        existing.setDrinkImageURL(drink.getDrinkImageURL());
+        existing.setIngredients(drink.getIngredients());
+        existing.setCategory(drink.getCategory());
+        adminDrinkRepository.save(existing);
     }
 }

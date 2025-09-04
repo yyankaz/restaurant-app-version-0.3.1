@@ -31,8 +31,8 @@ public class AdminIngredientController {
     }
 
     @PutMapping("/update/{id}")
-    public void updateIngredientById(@PathVariable Long id) {
-        adminIngredientService.updateIngredientById(id);
+    public void updateIngredientById(@PathVariable Long id, @RequestBody Ingredient ingredient) {
+        adminIngredientService.updateIngredientById(id, ingredient);
     }
 
 }
